@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+        .correct-answers {
+            display: none; /* Initially hide the correct answers */
+        }
+        .answer-list {
+            list-style-type: none; /* Remove bullet points */
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Generated Quiz</h1>
+        {% for question in questions %}
+        <div class="quiz-question">
+            {{ question }}
+        </div>
+        {% endfor %}
+        <button id="reveal-answers-btn" onclick="revealAnswers()">Reveal Correct Answers</button>
+        <div id="correct-answers" class="correct-answers">
+            <h2>Correct Answers:</h2>
+            <ul class="answer-list">
+                {% for answer in correct_answers %}
+                <li>{{ answer }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script>
+        function revealAnswers() {
+            var correctAnswersDiv = document.getElementById("correct-answers");
+            var revealButton = document.getElementById("reveal-answers-btn");
+
+            // Toggle the visibility of the correct answers section
+            if (correctAnswersDiv.style.display === "none") {
+                correctAnswersDiv.style.display = "block";
+                revealButton.textContent = "Hide Correct Answers";
+            } else {
+                correctAnswersDiv.style.display = "none";
+                revealButton.textContent = "Reveal Correct Answers";
+            }
+        }
+    </script>
+</body>
+</html>
