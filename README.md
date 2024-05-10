@@ -1,1 +1,1 @@
-# 4990-Project
+To run this app. First go to your terminal and then put in the command: export OPENAI_API_KEY="s", where "s" is your open ai api key. Then run the app.py file. It should give you a host link and open that up. Then you can enter a quiz topic of your choice and generate a quiz.
